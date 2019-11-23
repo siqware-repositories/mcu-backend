@@ -15,6 +15,12 @@ export default [
     slug: "home",
     icon: "HomeIcon",
   },
+    {
+    url: "/news",
+    name: "ពត៌មាន",
+    slug: "news",
+    icon: "BookOpenIcon",
+  },
   {
     url: "/page2",
     name: "Page 2",

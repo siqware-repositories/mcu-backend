@@ -39,6 +39,19 @@ const router = new Router({
                         rule: 'editor'
                     }
                 },
+                {
+                    path: '/news',
+                    name: 'news',
+                    component: () => import('./views/news/News'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'ពត៌មាន', url: '/'},
+                            {title: 'ពត៌មាន', active: true},
+                        ],
+                        pageTitle: 'ពត៌មាន',
+                        rule: 'editor'
+                    }
+                },
             ],
         },
         // =============================================================================

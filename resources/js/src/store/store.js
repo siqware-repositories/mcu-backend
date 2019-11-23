@@ -19,6 +19,7 @@ import actions from "./actions"
 Vue.use(Vuex);
 //Module
 import users from './modules/user'
+import news from './modules/news'
 export default new Vuex.Store({
     getters,
     mutations,
@@ -26,5 +27,6 @@ export default new Vuex.Store({
     actions,
     modules: {
         users,
+        news,
     }
 })

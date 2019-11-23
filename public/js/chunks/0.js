@@ -6896,6 +6896,11 @@ __webpack_require__.r(__webpack_exports__);
   slug: "home",
   icon: "HomeIcon"
 }, {
+  url: "/news",
+  name: "ពត៌មាន",
+  slug: "news",
+  icon: "BookOpenIcon"
+}, {
   url: "/page2",
   name: "Page 2",
   slug: "page2",
