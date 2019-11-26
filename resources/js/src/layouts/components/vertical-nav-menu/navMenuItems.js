@@ -21,6 +21,30 @@ export default [
     slug: "news",
     icon: "BookOpenIcon",
   },
+    {
+    url: "/video",
+    name: "វីដេអូ",
+    slug: "video",
+    icon: "VideoIcon",
+  },
+    {
+    url: "/gallery",
+    name: "រូបភាព",
+    slug: "video",
+    icon: "ImageIcon",
+  },
+    {
+    url: "/aoc",
+    name: "ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល",
+    slug: "news",
+    icon: "LayersIcon",
+  },
+  {
+    url: "/setting",
+    name: "ការកំណត់",
+    slug: "setting",
+    icon: "SettingsIcon",
+  },
   {
     url: "/page2",
     name: "Page 2",

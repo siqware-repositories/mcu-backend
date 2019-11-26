@@ -87,13 +87,18 @@
             all_news() {
                 return this.$store.getters.all_news
             },
+            all_aoc_names() {
+                return this.$store.getters.all_aoc_names
+            },
         },
         async created(){
-            if (this.all_news.length===0) {
-                await this.fetchNews();
-            }
+            await this.fetchNews();
+            await this.fetchAocName();
         },
         methods:{
+            async fetchAocName() {
+                await this.$store.dispatch('fetchAocName');
+            },
             async fetchNews(){
                 await this.$store.dispatch('fetchNews');
             },

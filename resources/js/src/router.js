@@ -52,6 +52,58 @@ const router = new Router({
                         rule: 'editor'
                     }
                 },
+                {
+                    path: '/aoc',
+                    name: 'aoc',
+                    component: () => import('./views/aoc/AOC'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'ទំព័រដើម', url: '/'},
+                            {title: 'ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល', active: true},
+                        ],
+                        pageTitle: 'ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/setting',
+                    name: 'setting',
+                    component: () => import('./views/setting/Setting'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'ទំព័រដើម', url: '/'},
+                            {title: 'កំណត់', active: true},
+                        ],
+                        pageTitle: 'ការកំណត់',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/video',
+                    name: 'video',
+                    component: () => import('./views/video/Video'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'ទំព័រដើម', url: '/'},
+                            {title: 'វីដេអូ', active: true},
+                        ],
+                        pageTitle: 'វីដេអូ',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/gallery',
+                    name: 'gallery',
+                    component: () => import('./views/gallery/Gallery'),
+                    meta: {
+                        breadcrumb: [
+                            {title: 'ទំព័រដើម', url: '/'},
+                            {title: 'រូបភាព', active: true},
+                        ],
+                        pageTitle: 'រូបភាព',
+                        rule: 'editor'
+                    }
+                },
             ],
         },
         // =============================================================================

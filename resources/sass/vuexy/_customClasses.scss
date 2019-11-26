@@ -525,3 +525,23 @@ ul.bordered-items {
     border-bottom: 1px solid $grey-light;
   }
 }
+.max-content {
+  width: max-content !important;
+}
+.v--modal{
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.v--modal-overlay{
+  z-index: 99999 !important;
+}
+.v--modal-overlay .v--modal-box{
+  overflow: inherit !important;
+}
+.mce-menu {
+  z-index: 9999999 !important;
+}
+.mce-window {
+  z-index: 999999 !important;
+}

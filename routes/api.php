@@ -17,6 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/file-upload','FileUploadController@upload')->name('file.upload');
 Route::post('/file-upload-thumb','FileUploadController@upload_thumb')->name('file.upload.thumb');
+Route::post('/file-upload-original','FileUploadController@upload_original')->name('file.upload.original');
 Route::resource('/news','NewsController');
 Route::post('/news-toggle-active/{id}','NewsController@toggle_active')->name('news.toggle.active');
 Route::post('/news-toggle-publish/{id}','NewsController@toggle_publish')->name('news.toggle.publish');
+Route::resource('/settings-aoc-name','AocNameController');
+Route::resource('/aoc','AOCController');
+Route::post('/aoc-add-major/{id}','AOCController@add_major')->name('aoc.add.major');
+Route::post('/aoc-update-major/{id}','AOCController@update_major')->name('aoc.update.major');
+Route::resource('/video','VideoController');
+Route::resource('/gallery','GalleryController');
+Route::resource('/about','AboutController');
+
+

@@ -24,7 +24,6 @@
           </li>
         </ul>
       </VuePerfectScrollbar>
-
       <div class="
         checkout-footer
         fixed

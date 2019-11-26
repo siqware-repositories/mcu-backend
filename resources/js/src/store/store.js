@@ -20,6 +20,11 @@ Vue.use(Vuex);
 //Module
 import users from './modules/user'
 import news from './modules/news'
+import aoc_name from './modules/aoc-name'
+import aoc from './modules/aoc'
+import video from './modules/video'
+import gallery from './modules/gallery'
+import about from './modules/about'
 export default new Vuex.Store({
     getters,
     mutations,
@@ -28,5 +33,10 @@ export default new Vuex.Store({
     modules: {
         users,
         news,
+        aoc_name,
+        aoc,
+        video,
+        gallery,
+        about,
     }
 })

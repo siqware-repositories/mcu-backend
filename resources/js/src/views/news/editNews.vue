@@ -32,8 +32,8 @@
                                 label="ប្រភេទ"
                                 v-model="news.category"
                         >
-                            <vs-select-item :key="index" :text="category.category" :value="category.category"
-                                            v-for="(category,index) in categories"/>
+                            <vs-select-item :key="index" :text="aoc.name" :value="aoc.name"
+                                            v-for="(aoc,index) in all_aoc_names"/>
                         </vs-select>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
         <vs-divider/>
         <!-- Save & Reset Button -->
         <div class="flex justify-end btn-group">
-            <vs-button @click="updateNews" icon="icon-edit" icon-pack="feather" type="relief">កែប្រែ</vs-button>
+            <vs-button v-if="selected_news" @click="updateNews" icon="icon-edit" icon-pack="feather" type="relief">កែប្រែ</vs-button>
             <vs-button @click="resetField" color="warning" icon="icon-delete" icon-pack="feather" type="relief">សម្អាត</vs-button>
         </div>
     </vx-card>
@@ -67,7 +67,7 @@
         data() {
             return {
                 /*news data*/
-                selected_news:1,
+                selected_news:null,
                 news: {
                     title: 'ចំណងជើង',
                     category: 'ICT',
@@ -92,11 +92,9 @@
             all_news() {
                 return this.$store.getters.all_news
             },
-        },
-        async created(){
-            if (this.all_news.length===0) {
-                await this.fetchNews();
-            }
+            all_aoc_names() {
+                return this.$store.getters.all_aoc_names
+            },
         },
         methods: {
             /*set thumbnail*/

@@ -17,8 +17,8 @@
                                 label="ប្រភេទ"
                                 v-model="news.category"
                         >
-                            <vs-select-item :key="index" :text="category.category" :value="category.category"
-                                            v-for="(category,index) in categories"/>
+                            <vs-select-item :key="index" :text="aoc.name" :value="aoc.name"
+                                            v-for="(aoc,index) in all_aoc_names"/>
                         </vs-select>
                     </div>
                 </div>
@@ -73,6 +73,9 @@
         computed: {
             placeholder() {
                 return this.$store.getters.getAppUrl + 'images/placeholder/placeholder.png'
+            },
+            all_aoc_names() {
+                return this.$store.getters.all_aoc_names
             },
         },
         methods: {

@@ -1,6 +1,30 @@
 <template>
 	<div>
-		<tinymce id="d2" v-model="data" :other_options="options"></tinymce>
+		<vs-button @click="show" type="relief">Show modal</vs-button>
+		<modal width="1000" height="auto" :scrollable="true" :pivotY="0.07" :adaptive="true" :clickToClose="false" name="add">
+			<div class="flex justify-end">
+				<i @click="$modal.hide('add')" class="vs-icon vs-popup--close material-icons text-warning" style="background: rgb(255, 255, 255);">close</i>
+			</div>
+			<vx-card no-shadow>
+				<tinymce id="modal" v-model="data" :other_options="options"></tinymce>
+			</vx-card>
+		</modal>
+		<vs-prompt
+				@cancel="val=''"
+				@accept="acceptAlert"
+				@close="close"
+				:active.sync="activePrompt">
+			<div class="con-exemple-prompt">
+				<tinymce id="d2" v-model="data" :other_options="options"></tinymce>
+				<span>Enter the security code</span>
+				<vs-input placeholder="Code" vs-placeholder="Code" v-model="val" class="mt-3 w-full" />
+			</div>
+		</vs-prompt>
+		<div class="demo-alignment">
+			<vs-button @click="popupActive=true" color="primary" type="border">Open Default popup</vs-button>
+			<vs-popup class="holamundo" title="Lorem ipsum dolor sit amet" :active.sync="popupActive">
+			</vs-popup>
+		</div>
 		<div class="flex btn-group">
 			<vs-button @click="is_popup=true" type="relief" icon-pack="feather" icon="icon-plus-square">បន្ថែម</vs-button>
 			<vs-button @click="is_popup_edit=true" color="warning" type="relief" icon-pack="feather" icon="icon-edit">កែប្រែ</vs-button>
@@ -18,6 +42,14 @@
 		components: {EditHome, AddHome},
 		data() {
 			return {
+				activePrompt:false,
+				activePrompt2:false,
+				val:'',
+				valMultipe:{
+					value1:'',
+					value2:''
+				},
+				popupActive: false,
 				is_popup:false,
 				is_popup_edit:false,
 				selected: [],
@@ -106,11 +138,35 @@
 			}
 		},
 		methods: {
+			show () {
+				this.$modal.show('add');
+			},
+			hide () {
+				this.$modal.hide('add');
+			},
 			syncPopup(val) {
 				this.is_popup = val
 			},
 			syncPopupEdit(val) {
 				this.is_popup_edit = val
+			},
+			acceptAlert(){
+				this.$vs.notify({
+					color:'success',
+					title:'Accept Selected',
+					text:'Lorem ipsum dolor sit amet, consectetur'
+				})
+			},
+			close(){
+				this.$vs.notify({
+					color:'danger',
+					title:'Closed',
+					text:'You close a dialog!'
+				})
+			},
+			clearValMultiple() {
+				this.valMultipe.value1 = "";
+				this.valMultipe.value2 = "";
 			}
 		}
 	}
