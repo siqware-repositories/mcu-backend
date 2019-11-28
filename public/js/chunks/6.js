@@ -511,7 +511,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     /*set thumbnail*/
     setThumb: function setThumb(thumb) {
-      this.news.thumb = thumb;
+      this.news.thumb = thumb.path;
     },
     //store
     storeNews: function storeNews() {

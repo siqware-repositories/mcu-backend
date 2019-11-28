@@ -830,6 +830,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "addAbout",
   data: function data() {
@@ -843,6 +852,11 @@ __webpack_require__.r(__webpack_exports__);
         height: 300
       }
     };
+  },
+  computed: {
+    all_aoc_names: function all_aoc_names() {
+      return this.$store.getters.all_aoc_names;
+    }
   },
   methods: {
     show: function show() {
@@ -1697,25 +1711,39 @@ var render = function() {
               "div",
               { staticClass: "vx-col w-full mb-2" },
               [
-                _c("vs-input", {
-                  directives: [
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
-                    }
-                  ],
-                  staticClass: "w-full",
-                  attrs: { "label-placeholder": "ចំណងជើង", name: "title" },
-                  model: {
-                    value: _vm.about.title,
-                    callback: function($$v) {
-                      _vm.$set(_vm.about, "title", $$v)
+                _c(
+                  "vs-select",
+                  {
+                    directives: [
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
+                      }
+                    ],
+                    staticClass: "w-full",
+                    attrs: {
+                      autocomplete: "",
+                      label: "ចំណងជើង",
+                      name: "title"
                     },
-                    expression: "about.title"
-                  }
-                }),
+                    model: {
+                      value: _vm.about.title,
+                      callback: function($$v) {
+                        _vm.$set(_vm.about, "title", $$v)
+                      },
+                      expression: "about.title"
+                    }
+                  },
+                  _vm._l(_vm.all_aoc_names, function(item, index) {
+                    return _c("vs-select-item", {
+                      key: index,
+                      attrs: { text: item.name, value: item.name }
+                    })
+                  }),
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "span",

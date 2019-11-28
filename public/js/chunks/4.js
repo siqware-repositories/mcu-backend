@@ -354,16 +354,16 @@ __webpack_require__.r(__webpack_exports__);
         title: '',
         images: []
       },
-      upload_url: route('file.upload.original'),
+      upload_url: route('file.upload.thumb'),
       galleryOptions: {
-        url: route('file.upload.original'),
+        url: route('file.upload.thumb'),
         thumbnailWidth: 150,
         thumbnailHeight: 150,
         addRemoveLinks: true,
         dictDefaultMessage: "ដាក់អាល់ប៊ុមរូបភាព"
       },
       thumbnailOptions: {
-        url: route('file.upload.original'),
+        url: route('file.upload.thumb'),
         maxFiles: 1,
         addRemoveLinks: true,
         dictDefaultMessage: "សូមដាក់រូប Thumbnail",

@@ -6,8 +6,17 @@
         <vx-card no-shadow>
             <div class="vx-row">
                 <div class="vx-col w-full mb-2">
-                    <vs-input class="w-full" label-placeholder="ចំណងជើង" name="title" v-model="about.title"
-                              v-validate="'required'"/>
+                    <vs-select
+                            autocomplete
+                            class="w-full"
+                            label="ចំណងជើង"
+                            v-model="about.title"
+                            v-validate="'required'"
+                            name="title"
+                    >
+                        <vs-select-item :key="index" :text="item.name" :value="item.name"
+                                        v-for="(item,index) in all_aoc_names"/>
+                    </vs-select>
                     <span class="text-danger text-sm"
                           v-show="errors.has('title')">{{ errors.first('title') }}</span>
                 </div>
@@ -44,6 +53,11 @@
                     height:300,
                 }
             }
+        },
+        computed:{
+            all_aoc_names() {
+                return this.$store.getters.all_aoc_names
+            },
         },
         methods:{
             show () {

@@ -81,7 +81,7 @@
         methods: {
             /*set thumbnail*/
             setThumb(thumb) {
-                this.news.thumb = thumb
+                this.news.thumb = thumb.path
             },
             //store
             storeNews(){
