@@ -131,7 +131,11 @@ __webpack_require__.r(__webpack_exports__);
         "website": "ambrose.net"
       }],
       data: 'Working on the mix',
-      options: {}
+      options: {
+        automatic_uploads: true,
+        images_upload_url: route('file.upload.tinymce'),
+        images_reuse_filename: true
+      }
     };
   },
   methods: {
@@ -293,7 +297,11 @@ __webpack_require__.r(__webpack_exports__);
         category: 'Faculty of Science and Technology'
       }],
       data: 'Working on the mix',
-      options: {}
+      options: {
+        automatic_uploads: true,
+        images_upload_url: route('file.upload.tinymce'),
+        images_reuse_filename: true
+      }
     };
   },
   computed: {

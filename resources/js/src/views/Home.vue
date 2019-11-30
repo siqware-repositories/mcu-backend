@@ -134,7 +134,11 @@
 					},
 				],
 				data: 'Working on the mix',
-				options: {}
+				options: {
+					automatic_uploads: true,
+					images_upload_url: route('file.upload.tinymce'),
+					images_reuse_filename: true
+				}
 			}
 		},
 		methods: {

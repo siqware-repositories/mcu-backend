@@ -496,7 +496,10 @@ __webpack_require__.r(__webpack_exports__);
       }],
       options: {
         height: 500,
-        plugins: 'link image imagetools table contextmenu lists'
+        plugins: 'link image imagetools table contextmenu lists',
+        automatic_uploads: true,
+        images_upload_url: route('file.upload.tinymce'),
+        images_reuse_filename: true
       }
     };
   },

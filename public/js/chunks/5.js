@@ -285,7 +285,10 @@ __webpack_require__.r(__webpack_exports__);
       data: 'Working on the mix',
       options: {
         height: 300,
-        plugins: 'link image imagetools table contextmenu'
+        plugins: 'link image imagetools table contextmenu',
+        automatic_uploads: true,
+        images_upload_url: route('file.upload.tinymce'),
+        images_reuse_filename: true
       }
     };
   },

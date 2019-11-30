@@ -16,6 +16,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/file-upload','FileUploadController@upload')->name('file.upload');
+Route::post('/file-upload-tinymce','FileUploadController@upload_tinymce')->name('file.upload.tinymce');
 Route::post('/file-upload-thumb','FileUploadController@upload_thumb')->name('file.upload.thumb');
 Route::post('/file-upload-original','FileUploadController@upload_original')->name('file.upload.original');
 Route::resource('/news','NewsController');
