@@ -10,21 +10,21 @@ class FileUploadController extends Controller
 {
     public function upload(Request $request){
         $file = $request->file('file');
-        $img = Image::make($file)->encode('png',100);
+        $img = Image::make($file)->encode('png',10);
         $name = uniqid().'-'.time() . '.png';
         Storage::disk('public')->put($name, $img);
         return Storage::url($name);
     }
     public function upload_original(Request $request){
         $file = $request->file('file');
-        $img = Image::make($file)->encode('png',30);
+        $img = Image::make($file)->encode('png',10);
         $name = uniqid().'-'.time() . '.png';
         Storage::disk('public')->put($name, $img);
         return response()->json(['path'=>Storage::url($name)]);
     }
     public function upload_tinymce(Request $request){
         $file = $request->file('file');
-        $img = Image::make($file)->encode('png',30);
+        $img = Image::make($file)->encode('png',10);
         $name = uniqid().'-'.time() . '.png';
         Storage::disk('public')->put($name, $img);
         return response()->json(['location'=>url(Storage::url($name))]);
@@ -32,7 +32,7 @@ class FileUploadController extends Controller
     //thumb
     public function upload_thumb(Request $request){
         $file = $request->file('file');
-        $img = Image::make($file)->fit(400, 400)->encode('png',30);
+        $img = Image::make($file)->fit(400, 400)->encode('png',10);
         $name = uniqid().'-'.time() . '.png';
         Storage::disk('public')->put($name, $img);
         return response()->json(['path'=>Storage::url($name)]);
