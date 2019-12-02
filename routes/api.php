@@ -30,11 +30,13 @@ Route::resource('/video','VideoController');
 Route::resource('/gallery','GalleryController');
 Route::resource('/about','AboutController');
 //front
-Route::get('/get-corporation','HomeController@get_corporation');
-Route::get('/get-news','HomeController@get_news');
-Route::get('/get-videos','HomeController@get_videos');
-Route::get('/get-gallery','HomeController@get_galleries');
-Route::get('/get-about','HomeController@get_abouts');
-Route::get('/get-aoc','HomeController@get_aoc');
+Route::group(['middleware' => ['cors']], function () {
+    Route::get('/get-corporation','HomeController@get_corporation');
+    Route::get('/get-news','HomeController@get_news');
+    Route::get('/get-videos','HomeController@get_videos');
+    Route::get('/get-gallery','HomeController@get_galleries');
+    Route::get('/get-about','HomeController@get_abouts');
+    Route::get('/get-aoc','HomeController@get_aoc');
+});
 
 
