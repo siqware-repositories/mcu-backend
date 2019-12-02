@@ -24,7 +24,7 @@ class FileUploadController extends Controller
     }
     public function upload_tinymce(Request $request){
         $file = $request->file('file');
-        $img = Image::make($file)->encode('png',90);
+        $img = Image::make($file)->encode('png',75);
         $name = uniqid().'-'.time() . '.png';
         Storage::disk('public')->put($name, $img);
         return response()->json(['location'=>url(Storage::url($name))]);
