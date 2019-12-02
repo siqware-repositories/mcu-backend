@@ -134,7 +134,10 @@ __webpack_require__.r(__webpack_exports__);
       options: {
         automatic_uploads: true,
         images_upload_url: route('file.upload.tinymce'),
-        images_reuse_filename: true
+        images_reuse_filename: true,
+        relative_urls: false,
+        remove_script_host: false,
+        convert_urls: true
       }
     };
   },
@@ -300,7 +303,10 @@ __webpack_require__.r(__webpack_exports__);
       options: {
         automatic_uploads: true,
         images_upload_url: route('file.upload.tinymce'),
-        images_reuse_filename: true
+        images_reuse_filename: true,
+        relative_urls: false,
+        remove_script_host: false,
+        convert_urls: true
       }
     };
   },

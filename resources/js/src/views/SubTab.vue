@@ -108,7 +108,10 @@
                     plugins:'link image imagetools table contextmenu',
                     automatic_uploads: true,
                     images_upload_url: route('file.upload.tinymce'),
-                    images_reuse_filename: true
+                    images_reuse_filename: true,
+                    relative_urls : false,
+                    remove_script_host : false,
+                    convert_urls : true,
                 }
             }
         },
