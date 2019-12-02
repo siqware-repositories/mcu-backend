@@ -14,9 +14,6 @@
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
-$app->configure('cors');
-$app->register(Barryvdh\Cors\ServiceProvider::class);
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
@@ -42,9 +39,6 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
-$app->routeMiddleware([
-    'cors' => \Barryvdh\Cors\HandleCors::class,
-]);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
