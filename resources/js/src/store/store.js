@@ -25,6 +25,9 @@ import aoc from './modules/aoc'
 import video from './modules/video'
 import gallery from './modules/gallery'
 import about from './modules/about'
+import project from './modules/project'
+import banner from './modules/collaboration'
+import collaboration from './modules/banner'
 export default new Vuex.Store({
     getters,
     mutations,
@@ -38,5 +41,8 @@ export default new Vuex.Store({
         video,
         gallery,
         about,
+        project,
+        collaboration,
+        banner,
     }
 })

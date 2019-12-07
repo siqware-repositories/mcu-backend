@@ -31,10 +31,6 @@ const router = new Router({
                     name: 'page-2',
                     component: () => import('./views/Page2.vue'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ទំព័រដើម', url: '/'},
-                            {title: 'អ្នកប្រើប្រាស់', active: true},
-                        ],
                         pageTitle: 'អ្នកប្រើប្រាស់',
                         rule: 'editor'
                     }
@@ -44,10 +40,6 @@ const router = new Router({
                     name: 'news',
                     component: () => import('./views/news/News'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ពត៌មាន', url: '/'},
-                            {title: 'ពត៌មាន', active: true},
-                        ],
                         pageTitle: 'ពត៌មាន',
                         rule: 'editor'
                     }
@@ -57,10 +49,6 @@ const router = new Router({
                     name: 'aoc',
                     component: () => import('./views/aoc/AOC'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ទំព័រដើម', url: '/'},
-                            {title: 'ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល', active: true},
-                        ],
                         pageTitle: 'ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល',
                         rule: 'editor'
                     }
@@ -70,10 +58,6 @@ const router = new Router({
                     name: 'setting',
                     component: () => import('./views/setting/Setting'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ទំព័រដើម', url: '/'},
-                            {title: 'កំណត់', active: true},
-                        ],
                         pageTitle: 'ការកំណត់',
                         rule: 'editor'
                     }
@@ -83,10 +67,6 @@ const router = new Router({
                     name: 'video',
                     component: () => import('./views/video/Video'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ទំព័រដើម', url: '/'},
-                            {title: 'វីដេអូ', active: true},
-                        ],
                         pageTitle: 'វីដេអូ',
                         rule: 'editor'
                     }
@@ -96,11 +76,25 @@ const router = new Router({
                     name: 'gallery',
                     component: () => import('./views/gallery/Gallery'),
                     meta: {
-                        breadcrumb: [
-                            {title: 'ទំព័រដើម', url: '/'},
-                            {title: 'រូបភាព', active: true},
-                        ],
                         pageTitle: 'រូបភាព',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/banner',
+                    name: 'banner',
+                    component: () => import('./views/banner/Banner'),
+                    meta: {
+                        pageTitle: 'Banner',
+                        rule: 'editor'
+                    }
+                },
+                {
+                    path: '/international-affair',
+                    name: 'international-affair',
+                    component: () => import('./views/international-affair/InternationalAffair'),
+                    meta: {
+                        pageTitle: 'International Affairs',
                         rule: 'editor'
                     }
                 },

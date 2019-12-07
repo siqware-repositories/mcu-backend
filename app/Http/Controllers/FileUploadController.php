@@ -20,7 +20,7 @@ class FileUploadController extends Controller
         $img = Image::make($file)->encode('jpg',75);
         $name = uniqid().'-'.time() . '.jpg';
         Storage::disk('public')->put($name, $img);
-        return response()->json(['path'=>Storage::url($name)]);
+        return response()->json(['path'=>url(Storage::url($name))]);
     }
     public function upload_tinymce(Request $request){
         $file = $request->file('file');
@@ -35,6 +35,14 @@ class FileUploadController extends Controller
         $img = Image::make($file)->fit(400, 400)->encode('jpg',75);
         $name = uniqid().'-'.time() . '.jpg';
         Storage::disk('public')->put($name, $img);
-        return response()->json(['path'=>Storage::url($name)]);
+        return response()->json(['path'=>url(Storage::url($name))]);
+    }
+    //logo
+    public function upload_logo(Request $request){
+        $file = $request->file('file');
+        $img = Image::make($file)->fit(400, 400)->encode('jpg',75);
+        $name = uniqid().'-'.time() . '.jpg';
+        Storage::disk('public')->put($name, $img);
+        return response()->json(['path'=>url(Storage::url($name))]);
     }
 }

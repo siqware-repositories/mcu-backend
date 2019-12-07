@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\About;
 use App\AOC;
+use App\Banner;
+use App\Collaboration;
 use App\Gallery;
 use App\News;
+use App\Project;
 use App\Video;
 use Illuminate\Http\Request;
 
@@ -34,5 +37,17 @@ class HomeController extends Controller
     //aoc
     public function get_aoc(){
         return AOC::with('majors')->get();
+    }
+    //project
+    public function get_project(){
+        return Project::all();
+    }
+    //collaboration
+    public function get_collaboration(){
+        return Collaboration::all();
+    }
+    //banner
+    public function get_banner(){
+        return Banner::where('status',true)->first();
     }
 }

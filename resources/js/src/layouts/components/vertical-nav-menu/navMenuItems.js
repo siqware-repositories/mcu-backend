@@ -40,15 +40,27 @@ export default [
     icon: "LayersIcon",
   },
   {
+    url: "/international-affair",
+    name: "International Affairs",
+    slug: "international-affair",
+    icon: "GlobeIcon",
+  },
+  {
+    url: "/banner",
+    name: "Banner",
+    slug: "banner",
+    icon: "BookmarkIcon",
+  },
+  {
     url: "/setting",
     name: "ការកំណត់",
     slug: "setting",
     icon: "SettingsIcon",
   },
-  {
+  /*{
     url: "/page2",
     name: "Page 2",
     slug: "page2",
-    icon: "FileIcon",
-  },
+    icon: "BookmarkIcon",
+  },*/
 ]
