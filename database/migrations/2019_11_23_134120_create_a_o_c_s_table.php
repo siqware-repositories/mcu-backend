@@ -16,7 +16,7 @@ class CreateAOCSTable extends Migration
         Schema::create('a_o_c_s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('content');
+            $table->longText('content');
             $table->timestamps();
         });
     }

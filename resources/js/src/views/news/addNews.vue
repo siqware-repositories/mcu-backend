@@ -24,12 +24,8 @@
                 </div>
             </div>
             <div class="vx-col lg:w-1/4 w-full">
-                <image-upload
-                        :image-src="news.thumb?news.thumb:placeholder"
-                        :upload-url="'file.upload.thumb'"
-                        @get-image-path="setThumb"/>
+                <vue-dropzone class="max-content p-1" ref="gallery" :duplicateCheck="true" @vdropzone-success="successUploadThumb" id="gallery" :options="thumbnailOptions"></vue-dropzone>
             </div>
-
         </div>
         <div class="vx-row">
             <div class="vx-col w-full my-2">
@@ -42,21 +38,23 @@
             <vs-button @click="storeNews" icon="icon-save" icon-pack="feather" type="relief">រក្សាទុក</vs-button>
             <vs-button @click="resetField" color="warning" icon="icon-delete" icon-pack="feather" type="relief">សម្អាត</vs-button>
         </div>
+        {{news}}
     </vx-card>
 </template>
 
 <script>
-    import ImageUpload from "../../components/ImageUpload";
+    import vue2Dropzone from 'vue2-dropzone'
+    import 'vue2-dropzone/dist/vue2Dropzone.min.css'
     export default {
         name: "addNews",
-        components: {ImageUpload},
+        components: {vueDropzone: vue2Dropzone},
         data() {
             return {
                 /*user data*/
                 news: {
                     title: 'ចំណងជើង',
                     category: 'ICT',
-                    thumb: null,
+                    thumb: 'images/placeholder/placeholder.png',
                     content:'អត្ថបទ'
                 },
                 categories: [
@@ -73,6 +71,14 @@
                     relative_urls : false,
                     remove_script_host : false,
                     convert_urls : true,
+                },
+                thumbnailOptions: {
+                    url: route('file.upload.thumb'),
+                    maxFiles:1,
+                    addRemoveLinks: true,
+                    dictDefaultMessage: "សូមដាក់រូប Thumbnail",
+                    thumbnailWidth: 150,
+                    thumbnailHeight: 150
                 }
             }
         },
@@ -139,7 +145,11 @@
                         thumb: null,
                         content:'អត្ថបទ'
                 }
-            }
+            },
+            //image upload
+            successUploadThumb(file,res){
+                this.news.thumb = res.path
+            },
         }
     }
 </script>

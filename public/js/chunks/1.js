@@ -9,10 +9,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ImageUpload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/ImageUpload */ "./resources/js/src/components/ImageUpload.vue");
-//
-//
-//
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
+/* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -72,10 +72,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "editNews",
   components: {
-    ImageUpload: _components_ImageUpload__WEBPACK_IMPORTED_MODULE_0__["default"]
+    vueDropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   data: function data() {
     return {
@@ -106,6 +107,14 @@ __webpack_require__.r(__webpack_exports__);
         relative_urls: false,
         remove_script_host: false,
         convert_urls: true
+      },
+      thumbnailOptions: {
+        url: route('file.upload.thumb'),
+        maxFiles: 1,
+        addRemoveLinks: true,
+        dictDefaultMessage: "សូមដាក់រូប Thumbnail",
+        thumbnailWidth: 150,
+        thumbnailHeight: 150
       }
     };
   },
@@ -188,14 +197,14 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       self.$store.dispatch('editNews', self.selected_news).then(function (data) {
         self.news = data;
+        self.$refs.editNewsThumb.manuallyAddFile({
+          size: 123
+        }, data.thumb);
       });
     },
-    //destroy
-    destroyNews: function destroyNews() {
-      var self = this;
-      self.$store.dispatch('editNews', self.selected_news).then(function (data) {
-        self.news = data;
-      });
+    //image upload
+    successUploadThumb: function successUploadThumb(file, res) {
+      this.news.thumb = res.path;
     }
   }
 });
@@ -337,12 +346,15 @@ var render = function() {
           "div",
           { staticClass: "vx-col lg:w-1/4 w-full" },
           [
-            _c("image-upload", {
+            _c("vue-dropzone", {
+              ref: "editNewsThumb",
+              staticClass: "max-content p-1",
               attrs: {
-                "image-src": _vm.news.thumb ? _vm.news.thumb : _vm.placeholder,
-                "upload-url": "file.upload.thumb"
+                duplicateCheck: true,
+                id: "gallery",
+                options: _vm.thumbnailOptions
               },
-              on: { "get-image-path": _vm.setThumb }
+              on: { "vdropzone-success": _vm.successUploadThumb }
             })
           ],
           1

@@ -29,10 +29,9 @@
 <script>
     import vue2Dropzone from 'vue2-dropzone'
     import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-    import ImageUpload from "../../components/ImageUpload";
     export default {
         name: "addGallery",
-        components: {ImageUpload,vueDropzone: vue2Dropzone},
+        components: {vueDropzone: vue2Dropzone},
         props: ['is_popup'],
         data() {
             return {

@@ -39,10 +39,7 @@
                 </div>
             </div>
             <div class="vx-col lg:w-1/4 w-full">
-                <image-upload
-                        :image-src="news.thumb?news.thumb:placeholder"
-                        :upload-url="'file.upload.thumb'"
-                        @get-image-path="setThumb"/>
+                <vue-dropzone class="max-content p-1" ref="editNewsThumb" :duplicateCheck="true" @vdropzone-success="successUploadThumb" id="gallery" :options="thumbnailOptions"></vue-dropzone>
             </div>
         </div>
         <div class="vx-row">
@@ -60,10 +57,11 @@
 </template>
 
 <script>
-    import ImageUpload from "../../components/ImageUpload";
+    import vue2Dropzone from 'vue2-dropzone'
+    import 'vue2-dropzone/dist/vue2Dropzone.min.css'
     export default {
         name: "editNews",
-        components: {ImageUpload},
+        components: {vueDropzone: vue2Dropzone},
         data() {
             return {
                 /*news data*/
@@ -88,6 +86,14 @@
                     relative_urls : false,
                     remove_script_host : false,
                     convert_urls : true,
+                },
+                thumbnailOptions: {
+                    url: route('file.upload.thumb'),
+                    maxFiles:1,
+                    addRemoveLinks: true,
+                    dictDefaultMessage: "សូមដាក់រូប Thumbnail",
+                    thumbnailWidth: 150,
+                    thumbnailHeight: 150
                 }
             }
         },
@@ -162,16 +168,14 @@
             editNews(){
                 let self = this;
                 self.$store.dispatch('editNews',self.selected_news).then(function (data) {
-                    self.news = data
+                    self.news = data;
+                    self.$refs.editNewsThumb.manuallyAddFile({ size: 123}, data.thumb);
                 })
             },
-            //destroy
-            destroyNews(){
-                let self = this;
-                self.$store.dispatch('editNews',self.selected_news).then(function (data) {
-                    self.news = data
-                })
-            }
+            //image upload
+            successUploadThumb(file,res){
+                this.news.thumb = res.path
+            },
         }
     }
 </script>

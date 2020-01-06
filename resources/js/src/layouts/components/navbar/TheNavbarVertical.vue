@@ -21,13 +21,13 @@
 
         <bookmarks :navbarColor="navbarColor" v-if="windowWidth >= 992" />
 
-        <vs-spacer />
+        <!--<vs-spacer />
 
         <search-bar />
 
         <notification-drop-down />
 
-        <profile-drop-down />
+        <profile-drop-down />-->
 
       </vs-navbar>
     </div>
