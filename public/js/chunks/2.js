@@ -171,7 +171,6 @@ __webpack_require__.r(__webpack_exports__);
       },
       options: {
         height: 300,
-        plugins: 'link image imagetools table contextmenu lists',
         automatic_uploads: true,
         images_upload_url: route('file.upload.tinymce'),
         images_reuse_filename: true,

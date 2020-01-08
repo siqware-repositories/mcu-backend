@@ -380,7 +380,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -409,7 +408,6 @@ __webpack_require__.r(__webpack_exports__);
       }],
       options: {
         height: 500,
-        plugins: 'link image imagetools table contextmenu lists',
         automatic_uploads: true,
         images_upload_url: route('file.upload.tinymce'),
         images_reuse_filename: true,
@@ -1028,8 +1026,7 @@ var render = function() {
           )
         ],
         1
-      ),
-      _vm._v("\n    " + _vm._s(_vm.news) + "\n")
+      )
     ],
     1
   )

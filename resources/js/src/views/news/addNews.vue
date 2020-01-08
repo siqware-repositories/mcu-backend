@@ -38,7 +38,6 @@
             <vs-button @click="storeNews" icon="icon-save" icon-pack="feather" type="relief">រក្សាទុក</vs-button>
             <vs-button @click="resetField" color="warning" icon="icon-delete" icon-pack="feather" type="relief">សម្អាត</vs-button>
         </div>
-        {{news}}
     </vx-card>
 </template>
 
@@ -64,7 +63,6 @@
                 ],
                 options: {
                     height: 500,
-                    plugins: 'link image imagetools table contextmenu lists',
                     automatic_uploads: true,
                     images_upload_url: route('file.upload.tinymce'),
                     images_reuse_filename: true,

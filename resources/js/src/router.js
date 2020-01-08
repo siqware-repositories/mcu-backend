@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-Vue.use(Router)
+import store from './store/store'
+Vue.use(Router);
 
 const router = new Router({
     mode: 'history',
@@ -25,6 +25,9 @@ const router = new Router({
                     path: '/',
                     name: 'home',
                     component: () => import('./views/news/News'),
+                    meta:{
+                        requiresAuth:true
+                    }
                 },
                 {
                     path: '/page2',
@@ -32,7 +35,8 @@ const router = new Router({
                     component: () => import('./views/Page2.vue'),
                     meta: {
                         pageTitle: 'អ្នកប្រើប្រាស់',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -41,7 +45,8 @@ const router = new Router({
                     component: () => import('./views/news/News'),
                     meta: {
                         pageTitle: 'ពត៌មាន',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -50,7 +55,8 @@ const router = new Router({
                     component: () => import('./views/aoc/AOC'),
                     meta: {
                         pageTitle: 'ថ្នាក់សិក្សា ការិយាល័យ និងមជ្ឈមណ្ឌល',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -59,7 +65,8 @@ const router = new Router({
                     component: () => import('./views/setting/Setting'),
                     meta: {
                         pageTitle: 'ការកំណត់',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -68,7 +75,8 @@ const router = new Router({
                     component: () => import('./views/video/Video'),
                     meta: {
                         pageTitle: 'វីដេអូ',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -77,7 +85,8 @@ const router = new Router({
                     component: () => import('./views/gallery/Gallery'),
                     meta: {
                         pageTitle: 'រូបភាព',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -86,7 +95,8 @@ const router = new Router({
                     component: () => import('./views/banner/Banner'),
                     meta: {
                         pageTitle: 'Banner',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
                 {
@@ -95,7 +105,8 @@ const router = new Router({
                     component: () => import('./views/international-affair/InternationalAffair'),
                     meta: {
                         pageTitle: 'International Affairs',
-                        rule: 'editor'
+                        rule: 'editor',
+                        requiresAuth:true
                     }
                 },
             ],
@@ -137,5 +148,15 @@ router.afterEach(() => {
         appLoading.style.display = "none";
     }
 });
-
+router.beforeEach((to, from, next) => {
+    if(to.matched.some(record => record.meta.requiresAuth)) {
+        if (store.getters.isAuthenticated) {
+            next();
+            return
+        }
+        next('/pages/login')
+    } else {
+        next()
+    }
+});
 export default router
