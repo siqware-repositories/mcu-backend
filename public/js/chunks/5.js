@@ -169,6 +169,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -183,7 +187,8 @@ __webpack_require__.r(__webpack_exports__);
       data: {
         logo: 'images/placeholder/placeholder.png',
         org_name: '',
-        description: ''
+        description: '',
+        url: 'http://mcu.edu.kh/'
       },
       logoOptions: {
         url: route('file.upload.logo'),
@@ -320,6 +325,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -330,20 +339,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      selected: [],
-      users: [{
-        "id": 1,
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "website": "hildegard.org"
-      }, {
-        "id": 2,
-        "name": "Ervin Howell",
-        "username": "Antonette",
-        "email": "Shanna@melissa.tv",
-        "website": "anastasia.net"
-      }]
+      selected: []
     };
   },
   computed: {
@@ -454,6 +450,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -468,7 +468,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       data: {
         logo: 'images/placeholder/placeholder.png',
         org_name: '',
-        description: ''
+        description: '',
+        url: 'http://mcu.edu.kh/'
       },
       logoOptions: {
         url: route('file.upload.logo'),
@@ -630,6 +631,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -646,7 +651,8 @@ __webpack_require__.r(__webpack_exports__);
         project_name: '',
         project_from: '',
         project_status: 'ongoing',
-        description: ''
+        description: '',
+        url: 'http://mcu.edu.kh/'
       },
       logoOptions: {
         url: route('file.upload.logo'),
@@ -791,6 +797,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -807,7 +817,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         project_name: null,
         project_from: null,
         project_status: 'ongoing',
-        description: 'description'
+        description: 'description',
+        url: 'http://mcu.edu.kh/'
       },
       logoOptions: {
         url: route('file.upload.logo'),
@@ -941,6 +952,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -1235,6 +1250,49 @@ var render = function() {
               "div",
               { staticClass: "vx-col w-full" },
               [
+                _c("vs-input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "w-full",
+                  attrs: { "label-placeholder": "Project Url", name: "url" },
+                  model: {
+                    value: _vm.data.url,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data, "url", $$v)
+                    },
+                    expression: "data.url"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("url"),
+                        expression: "errors.has('url')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("url")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "vx-col w-full" },
+              [
                 _c("label", [_vm._v("Description")]),
                 _vm._v(" "),
                 _c("vs-textarea", {
@@ -1447,6 +1505,14 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
+                      _c("vs-td", { attrs: { data: data[indextr].url } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(data[indextr].url) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
                       _c(
                         "vs-td",
                         { attrs: { data: data[indextr].description } },
@@ -1485,6 +1551,8 @@ var render = function() {
               _c("vs-th", { attrs: { "sort-key": "org_name" } }, [
                 _vm._v("Organization's Name")
               ]),
+              _vm._v(" "),
+              _c("vs-th", { attrs: { "sort-key": "url" } }, [_vm._v("Url")]),
               _vm._v(" "),
               _c("vs-th", { attrs: { "sort-key": "description" } }, [
                 _vm._v("Description")
@@ -1618,6 +1686,49 @@ var render = function() {
                     staticClass: "text-danger text-sm"
                   },
                   [_vm._v(_vm._s(_vm.errors.first("org_name")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "vx-col w-full" },
+              [
+                _c("vs-input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "w-full",
+                  attrs: { "label-placeholder": "Project Url", name: "url" },
+                  model: {
+                    value: _vm.data.url,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data, "url", $$v)
+                    },
+                    expression: "data.url"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("url"),
+                        expression: "errors.has('url')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("url")))]
                 )
               ],
               1
@@ -1916,6 +2027,49 @@ var render = function() {
               "div",
               { staticClass: "vx-col w-full" },
               [
+                _c("vs-input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "w-full",
+                  attrs: { "label-placeholder": "Project Url", name: "url" },
+                  model: {
+                    value: _vm.data.url,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data, "url", $$v)
+                    },
+                    expression: "data.url"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("url"),
+                        expression: "errors.has('url')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("url")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "vx-col w-full" },
+              [
                 _c("label", [_vm._v("Description")]),
                 _vm._v(" "),
                 _c("vs-textarea", {
@@ -2189,6 +2343,49 @@ var render = function() {
               "div",
               { staticClass: "vx-col w-full" },
               [
+                _c("vs-input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "w-full",
+                  attrs: { "label-placeholder": "Project Url", name: "url" },
+                  model: {
+                    value: _vm.data.url,
+                    callback: function($$v) {
+                      _vm.$set(_vm.data, "url", $$v)
+                    },
+                    expression: "data.url"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("url"),
+                        expression: "errors.has('url')"
+                      }
+                    ],
+                    staticClass: "text-danger text-sm"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("url")))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "vx-col w-full" },
+              [
                 _c("label", [_vm._v("Description")]),
                 _vm._v(" "),
                 _c("vs-textarea", {
@@ -2405,6 +2602,14 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
+                      _c("vs-td", { attrs: { data: data[indextr].url } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(data[indextr].url) +
+                            "\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
                       _c(
                         "vs-td",
                         { attrs: { data: data[indextr].project_status } },
@@ -2451,6 +2656,8 @@ var render = function() {
               _c("vs-th", { attrs: { "sort-key": "description" } }, [
                 _vm._v("Description")
               ]),
+              _vm._v(" "),
+              _c("vs-th", { attrs: { "sort-key": "url" } }, [_vm._v("URL")]),
               _vm._v(" "),
               _c("vs-th", { attrs: { "sort-key": "project_status" } }, [
                 _vm._v("Project Status")

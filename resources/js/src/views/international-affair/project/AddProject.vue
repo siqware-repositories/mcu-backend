@@ -26,6 +26,10 @@
                     <span class="text-danger text-sm" v-show="errors.has('project_status')">{{ errors.first('project_status') }}</span>
                 </div>
                 <div class="vx-col w-full">
+                    <vs-input v-validate="'required'" label-placeholder="Project Url" name="url" v-model="data.url" class="w-full" />
+                    <span class="text-danger text-sm" v-show="errors.has('url')">{{ errors.first('url') }}</span>
+                </div>
+                <div class="vx-col w-full">
                     <label>Description</label>
                     <vs-textarea v-validate="'required'" name="description" label="Description" v-model="data.description" />
                     <span class="text-danger text-sm" v-show="errors.has('description')">{{ errors.first('description') }}</span>
@@ -55,6 +59,7 @@
                     project_from:'',
                     project_status:'ongoing',
                     description:'',
+                    url:'http://mcu.edu.kh/',
                 },
                 logoOptions: {
                     url: route('file.upload.logo'),

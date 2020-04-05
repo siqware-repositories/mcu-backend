@@ -23,6 +23,7 @@ class CollaborationController extends Controller
         $store->logo = $input['logo'];
         $store->org_name = $input['org_name'];
         $store->description = $input['description'];
+        $store->url = $input['url'];
         $store->save();
         return $store;
     }
@@ -42,6 +43,7 @@ class CollaborationController extends Controller
         $update->logo = $input['logo'];
         $update->org_name = $input['org_name'];
         $update->description = $input['description'];
+        $update->url = $input['url'];
         $update->save();
     }
     //destroy

@@ -13,6 +13,7 @@
                 <vs-th sort-key="id">ID</vs-th>
                 <vs-th sort-key="logo"></vs-th>
                 <vs-th sort-key="org_name">Organization's Name</vs-th>
+                <vs-th sort-key="url">Url</vs-th>
                 <vs-th sort-key="description">Description</vs-th>
             </template>
 
@@ -26,6 +27,9 @@
                     </vs-td>
                     <vs-td :data="data[indextr].org_name">
                         {{ data[indextr].org_name }}
+                    </vs-td>
+                    <vs-td :data="data[indextr].url">
+                        {{ data[indextr].url }}
                     </vs-td>
                     <vs-td :data="data[indextr].description">
                         {{ data[indextr].description }}
@@ -45,20 +49,6 @@
         data(){
             return{
                 selected:[],
-                users: [{
-                    "id": 1,
-                    "name": "Leanne Graham",
-                    "username": "Bret",
-                    "email": "Sincere@april.biz",
-                    "website": "hildegard.org",
-                },
-                    {
-                        "id": 2,
-                        "name": "Ervin Howell",
-                        "username": "Antonette",
-                        "email": "Shanna@melissa.tv",
-                        "website": "anastasia.net",
-                    }]
             }
         },
         computed:{

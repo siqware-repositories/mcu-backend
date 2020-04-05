@@ -27,6 +27,7 @@ class ProjectController extends Controller
         $store->project_from = $input['project_from'];
         $store->project_status = $input['project_status'];
         $store->description = $input['description'];
+        $store->url = $input['url'];
         $store->save();
         return $store;
     }
@@ -50,6 +51,7 @@ class ProjectController extends Controller
         $update->project_from = $input['project_from'];
         $update->project_status = $input['project_status'];
         $update->description = $input['description'];
+        $update->url = $input['url'];
         $update->save();
     }
     //destroy

@@ -25,6 +25,10 @@
                     <v-select v-validate="'required'" name="project_from" v-model="data.project_status" :options="['ongoing','finished']"/>
                 </div>
                 <div class="vx-col w-full">
+                    <vs-input v-validate="'required'" label-placeholder="Project Url" name="url" v-model="data.url" class="w-full" />
+                    <span class="text-danger text-sm" v-show="errors.has('url')">{{ errors.first('url') }}</span>
+                </div>
+                <div class="vx-col w-full">
                     <label>Description</label>
                     <vs-textarea label="Description" v-model="data.description" />
                 </div>
@@ -53,6 +57,7 @@
                     project_from:null,
                     project_status:'ongoing',
                     description:'description',
+                    url:'http://mcu.edu.kh/',
                 },
                 logoOptions: {
                     url: route('file.upload.logo'),

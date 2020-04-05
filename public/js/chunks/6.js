@@ -852,7 +852,10 @@ __webpack_require__.r(__webpack_exports__);
         height: 300,
         automatic_uploads: true,
         images_upload_url: route('file.upload.tinymce'),
-        images_reuse_filename: true
+        images_reuse_filename: true,
+        relative_urls: false,
+        remove_script_host: false,
+        convert_urls: true
       }
     };
   },
@@ -979,7 +982,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         content: ''
       },
       options: {
-        height: 300
+        height: 300,
+        automatic_uploads: true,
+        images_upload_url: route('file.upload.tinymce'),
+        images_reuse_filename: true,
+        relative_urls: false,
+        remove_script_host: false,
+        convert_urls: true
       }
     };
   },

@@ -15,6 +15,7 @@
                 <vs-th sort-key="project_from">Project From</vs-th>
                 <vs-th sort-key="project_name">Name</vs-th>
                 <vs-th sort-key="description">Description</vs-th>
+                <vs-th sort-key="url">URL</vs-th>
                 <vs-th sort-key="project_status">Project Status</vs-th>
             </template>
 
@@ -34,6 +35,9 @@
                     </vs-td>
                     <vs-td :data="data[indextr].description">
                         {{ data[indextr].description }}
+                    </vs-td>
+                    <vs-td :data="data[indextr].url">
+                        {{ data[indextr].url }}
                     </vs-td>
                     <vs-td :data="data[indextr].project_status">
                         {{ data[indextr].project_status }}
